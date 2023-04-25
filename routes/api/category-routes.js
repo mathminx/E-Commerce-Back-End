@@ -47,20 +47,29 @@ router.put('/:id', async (req, res) => {
     // Calls the update method on the Category model
     const categoryData = await Category.update(
       {
-        category_name: req.body.category_name,
+        category_name: req.body.category_name
       },
       {
         where: {
-          category_id: req.params.category_id,
-        },
+          category_id: req.params.id
+        }
       });
-      if (!categoryData.category_id) {
+      console.log("2", categoryData);
+      if (!categoryData) {
         res.status(404).json({ message: 'No category found with that id!' });
         return;
       }
-      res.status(200).json(categoryData);
+      const updatedCategory = await Category.findByPk(req.params.id, {
+        include: [{ model: Product }],
+      });
+      if (!updatedCategory) {
+        res.status(404).json({ message: 'Error fetching updated category!' });
+        return;
+      }
+      res.status(200).json(updatedCategory);
   }
-  catch (err) {
+  catch (err) 
+  {
     res.status(500).json(err);
   }
 });
@@ -70,17 +79,21 @@ router.delete('/:id', async (req, res) => {
   try {
     const categoryData = await Category.destroy({
       where: {
-        id: req.params.id,
+        category_id: req.params.id,
       },
     });
-
     if (!categoryData) {
       res.status(404).json({ message: 'No category found with that id!' });
       return;
     }
-
-    res.status(200).json(categoryData);
-  } catch (err) {
+    if (categoryData == 1) {
+      res.status(200).json(categoryData);
+    }
+    else {
+      res.status(500).json(err);
+    }
+  } 
+  catch (err) {
     res.status(500).json(err);
   }
 });

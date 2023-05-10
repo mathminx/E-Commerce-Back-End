@@ -1,9 +1,8 @@
 const router = require('express').Router();
-const { Tag, Product} = require('../../models');
+const { Tag, Product, ProductTag } = require('../../models');
 
 // The `/api/tags` endpoint
 
-// GET all tags
 router.get('/', async (req, res) => {
   try {
     const tagData = await Tag.findAll({
@@ -20,6 +19,8 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
+  // find a single tag by its `id`
+  // be sure to include its associated Product data
   try {
     const tagData = await Tag.findByPk(req.params.id, {
       include: [{ model: Product }],
@@ -34,44 +35,81 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Create a new tag
 router.post('/', async (req, res) => {
-  try {
-    const tagData = await Tag.create(req.body, {
-      include: [{ model: Product }],
-    });
-    res.status(200).json(tagData);
-  } catch (err) {
+  /* req.body should look like this...
+  {
+    "tag_name": "iconic",
+    "productIds": [1, 6]
+  } 
+  */
+  Tag.create(req.body)
+  .then((tag) => {
+    console.log(req.body);
+    // if there's product tags, we need to create pairings to bulk create in the ProductTag model
+    if (req.body.productIds) {
+      const productTagIdArr = req.body.productIds.map((product_id) => {
+        return {
+          product_id,
+          tag_id: tag.id,
+        };
+      });
+      return ProductTag.bulkCreate(productTagIdArr);
+    }
+    // if no product tags, just respond
+    res.status(200).json(tag);
+  })
+  .then((ProductTag_id) => res.status(200).json(ProductTag_id))
+  .catch((err) => {
+    console.log(err);
     res.status(400).json(err);
-  }
+  });
 });
 
-// update a tag's name by its `id` value
+// update tag
 router.put('/:id', async (req, res) => {
   try {
-    // Calls the update method on the Category model
+    // Calls the update method on the Tag model
     const tagData = await Tag.update(
       {
-        tag_name: req.body.tag_name,
+        tag_name: req.body.tag_name
       },
       {
         where: {
-          tag_id: req.params.tag_id,
-        },
-      });
-      if (!tagData.tag_id) {
-        res.status(404).json({ message: 'No tag found with that id!' });
-        return;
+          id: req.params.id
+        }
       }
-      res.status(200).json(tagData);
+    );
+    if (!tagData) {
+      res.status(404).json({ message: 'No tag found with that id!' });
+      return;
+    }
+
+    res.status(200).json({message: `Tag ${req.params.id} name updated to ${req.body.tag_name}.`});
   }
+    catch (err) 
+    {
+      res.status(500).json(err);
+    }
+  });
+
+// delete a tag by its `id` value
+router.delete('/:id', async (req, res) => {
+  try {
+    const tagData = await Tag.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (!tagData) {
+      res.status(404).json({ message: 'No tag found with that id!'});
+      return;
+    }
+    res.status(200).json({message: `Tag ${req.params.id} deleted.`});
+  } 
   catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.delete('/:id', (req, res) => {
-  // delete on tag by its `id` value
-});
 
 module.exports = router;

@@ -2,6 +2,8 @@
 
 This is a Node.js command-line application that prompts the user to input text and select the shape and colours, then generates a logo based on the user input and saves it as an [SVG file]
 
+This application enables a user to write and save notes in order to keep track of tasks to be competed. It uses an Express.js back end to save and retrieve note data to and from a JSON file. The user can also delete notes once they are no longer needed. The entire application is deployed via Heroku.
+
 Internet retail, also known as **e-commerce**, is the largest sector of the electronics industry, generating an estimated $29 trillion in 2019. E-commerce platforms like Shopify and WooCommerce provide a suite of services to businesses of all sizes. Due to their prevalence, understanding the fundamental architecture of these platforms will benefit you as a full-stack web developer.
 
 Your task is to build the back end for an e-commerce site by modifying starter code. You’ll configure a working Express.js API to use Sequelize to interact with a MySQL database.
@@ -36,18 +38,10 @@ uses the dotenv package to store sensitive data using environment variables (MyS
 
 ## Installation
   
-Install dependencies by running `npm install` followed by `npm i inquirer@8.2.4`.
+To install locally, load dependencies by running `npm install`, followed by `node server.js` to start the apllication.
 
 
 ## Usage
-
-https://watch.screencastify.com/v/cDiv11qbhrJSEBzs7Dx0
-
-
-The application is invoked by running the following command: `node index.js`.
-The user is prompted to input text for the logo (maximum 3 characters), select a shape from a list (circle, square, or triangle) and specify two colours (colour keyword OR a hexadecimal number) - one colour for the shape and another for the text. 
-Based on the user input, the application generates a string that defines the logo, saves it to an SVG file `(logo.svg)`, and prints `Generated logo.svg` in the command line.
-When the `logo.svg` file is opened in a browser, a 300x200 pixel image matching the criteria entered is displayed
 
 ### A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met.
 * A walkthrough video that demonstrates the functionality of the e-commerce back end must be submitted, and a link to the video should be included in your readme file.
@@ -62,6 +56,8 @@ When the `logo.svg` file is opened in a browser, a 300x200 pixel image matching 
 
 ## Tests
 
+Tests for `GET`, `POST`, `PUT`, and `DELETE` requests were performed locally using Insomnia.
+
 
 ## License
 
@@ -70,6 +66,9 @@ When the `logo.svg` file is opened in a browser, a 300x200 pixel image matching 
  ![License: ](https://img.shields.io/badge/License-MIT-blueviolet.svg)
 
 ##
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)  ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)  ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
+
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)  ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)  ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)  ![Insomnia](https://img.shields.io/badge/Insomnia-black?style=for-the-badge&logo=insomnia&logoColor=5849BE)  ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
+  
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
   
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)

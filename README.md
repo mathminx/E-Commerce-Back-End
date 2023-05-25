@@ -1,10 +1,6 @@
 # E-Commerce-Back-End
 
-This application functions as the back end of an e-commerce site. It is a command line application comprised of an Express.js API that uses Sequelize to interact with a MySQL database. 
-
-
-
-
+This application functions as the back end of an e-commerce site. It is a command line application comprised of an Express.js API that uses Sequelize to interact with a MySQL database. It uses the dotenv package to store sensitive data using environment variables (MySQL username, password, and database name).
 
 
 ## Table of Contents
@@ -12,10 +8,6 @@ This application functions as the back end of an e-commerce site. It is a comman
 * [Usage](#usage)
 * [Tests](#tests)
 * [License](#license)
-
-
-uses MySQL2 and Sequelize packages to connect the Express.js API to a MySQL database 
-uses the dotenv package to store sensitive data using environment variables (MySQL username, password, and database name)
 
 
 ## Installation

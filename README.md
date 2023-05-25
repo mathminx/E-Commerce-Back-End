@@ -1,32 +1,10 @@
 # E-Commerce-Back-End
 
-This is a Node.js command-line application that prompts the user to input text and select the shape and colours, then generates a logo based on the user input and saves it as an [SVG file]
+This application functions as the back end of an e-commerce site. It is a command line application comprised of an Express.js API that uses Sequelize to interact with a MySQL database. 
 
-This application was built using JavaScript, Node.js, Express, MySQL, Sequelize, Handlebars, and UIKit. The entire application is deployed via Heroku. Students create an account, specify the subject(s) for which they require tutoring, and then be matched with a tutor(s) who has created an account and indicated that they can tutor that subject. 
 
-This application enables a user to write and save notes in order to keep track of tasks to be competed. It uses an Express.js back end to save and retrieve note data to and from a JSON file. The user can also delete notes once they are no longer needed. The entire application is deployed via Heroku.
 
-Internet retail, also known as **e-commerce**, is the largest sector of the electronics industry, generating an estimated $29 trillion in 2019. E-commerce platforms like Shopify and WooCommerce provide a suite of services to businesses of all sizes. Due to their prevalence, understanding the fundamental architecture of these platforms will benefit you as a full-stack web developer.
 
-Your task is to build the back end for an e-commerce site by modifying starter code. You’ll configure a working Express.js API to use Sequelize to interact with a MySQL database.
-
-Because this application won’t be deployed, you’ll also need to provide a link to a walkthrough video that demonstrates its functionality and all of the acceptance criteria being met. You’ll need to submit a link to the video and add it to the readme of your project.
-
-AS A manager at an internet retail company
-I WANT a back end for my e-commerce website that uses the latest technologies
-SO THAT my company can compete with other e-commerce companies
-
-Express.js API
-
-to connect to a database using Sequelize, add database name, MySQL username, and MySQL password to an environment variable file
-
-enter schema and seed commands to create and seed the development database
-
-enter the command to invoke the application --> server is started and the Sequelize models are synced to the MySQL database
-
-open API GET routes in Insomnia for categories, products, or tags --> the data for each of these routes is displayed in a formatted JSON
-
-API POST, PUT, and DELETE routes in Insomnia --> to successfully create, update, and delete data in the database
 
 
 ## Table of Contents
@@ -42,7 +20,9 @@ uses the dotenv package to store sensitive data using environment variables (MyS
 
 ## Installation
   
-To install locally, load dependencies by running `npm install`, followed by `node server.js` to start the apllication.
+1. To connect to a database using Sequelize, add database name, MySQL username, and MySQL password to an environment variable file
+2. enter schema and seed commands to create and seed the development database
+3. To install locally, load dependencies by running `npm install`, followed by `node server.js` to start the server and sync the Sequelize models to the MySQL database.
 
 
 ## Usage

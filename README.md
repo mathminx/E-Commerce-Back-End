@@ -12,22 +12,18 @@ This application functions as the back end of an e-commerce site. It is a comman
 
 ## Installation
   
-1. To connect to a database using Sequelize, add database name, MySQL username, and MySQL password to an environment variable file
-2. enter schema and seed commands to create and seed the development database
-3. To install locally, load dependencies by running `npm install`, followed by `node server.js` to start the server and sync the Sequelize models to the MySQL database.
+1. On the command line, run `npm install` to load the dependencies.
+2. Log in to mySQL by entering `mysql -u root -p`. Enter your password when prompted.
+3. Create the database schema by entering `SOURCE db/schema.sql; then, access the database by entering `USE ecommerce_db`.
+4. On the command line, run `npm seed` to create the database and populate it with test data.
+5. Run `npm start` to start the server and sync the Sequelize models to the MySQL database.
 
 
 ## Usage
 
-### A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met.
-* A walkthrough video that demonstrates the functionality of the e-commerce back end must be submitted, and a link to the video should be included in your readme file.
-* The walkthrough video must show all of the technical acceptance criteria being met.
-* The walkthrough video must demonstrate how to create the schema from the MySQL shell.
-* The walkthrough video must demonstrate how to seed the database from the command line.
-* The walkthrough video must demonstrate how to start the application’s server.
-* The walkthrough video must demonstrate GET routes for all categories, all products, and all tags being tested in Insomnia.
-* The walkthrough video must demonstrate GET routes for a single category, a single product, and a single tag being tested in Insomnia.
-* The walkthrough video must demonstrate POST, PUT, and DELETE routes for categories, products, and tags being tested in Insomnia.
+The following walkthrough video demonstrates the functionality of the application.
+
+https://drive.google.com/file/d/1Pd_Zjd3MJ7KMgPu2NSQw9-koHbZv_JTq/view?usp=sharing
 
 
 ## Tests
